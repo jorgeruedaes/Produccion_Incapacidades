@@ -1,0 +1,37 @@
+#tabla-incapacidades
+{
+	font-size: 1em !important;
+}
+#tabla-detalle-pago
+{
+	font-size: 1em !important;
+}
+#caja-izq
+{
+	background-color:#FFF;
+	height: 100%;
+	border-right: 1px solid #DADFE1;
+	font-size:0.8em;
+}
+.grey-text
+{
+ 	color:#6C7A89;
+}
+.italic-letter
+{
+	font-style: italic;
+}
+#caja-der
+{
+	background-color:#FFF;
+	height: 100%;
+	font-size:0.8em;
+}
+.no-padding-left
+{
+	padding-left: 0px;
+}
+.caja-der-padding
+{
+	padding-left: 8px;
+}
