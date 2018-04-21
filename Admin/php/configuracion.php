@@ -17,17 +17,17 @@ function String_Get_Valores($solicitud){
 	}else if ($solicitud == "favicon") {
 		return "logo.png";
 	}else if ($solicitud == "server") {
-	//	return "eliseo.colombiahosting.com.co";
-	return "incapacidades.osya.net.co";
+	return "eliseo.colombiahosting.com.co";
+	//return "incapacidades.osya.net.co";
 	//return "localhost";
 	}else if ($solicitud == "username") {
-		return "Incapacidades";
+		return "ligasa_inca_des";
     //   return  "Incapacidades";
 	}else if ($solicitud == "password") {
-	return "IncapacidadesOsya.2018*";
+	return "HV8h{jJQTzo[";
 	//	return "IncapacidadesOsya.2018*";
 	}else if ($solicitud == "basededatos") {
-		return "incapacidades";
+		return "ligasa_pro_incapacidades";
 		//return "torneosy_incapacidades";
 	}else if ($solicitud == "color") { // color de todo el form
 		return "#ECF0F1";
