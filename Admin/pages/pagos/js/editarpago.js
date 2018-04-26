@@ -219,7 +219,7 @@ $(function() {
 
 			}else if ($('.payment-difference').text() != '0')
 			{
-				swal("Error","Para poder finalizar el pago , el valor total del pago y el valor sumado No deben tener diferenecia.", "error");	
+				swal("Error","Para poder finalizar el pago , el valor total del pago y el valor sumado No deben tener diferencia.", "error");	
 				return false;
 			} else if ($( ".payment-eps option:selected" ).val() == ""){
 
@@ -313,6 +313,8 @@ $(function() {
 
 				var id = $(this).parent().data('id');
 				var tipoinc = $(this).parent().data('tipo-inc');
+				var fechacorte = $(this).parent().data('cutdate');
+				var nombreincapacidad = $(this).parent().data('nombreincapacidad');
 
 				$('#tabla-detalle-pago tbody').find('.delete-item').parent().each(function() {
 
@@ -333,9 +335,9 @@ $(function() {
 					var money = 0;
 
 					var parent = $(this).parents('tr');
-					if(parent.find("td:nth-child(8)").find('input').is(':checked'))
+					if(parent.find("td:nth-child(9)").find('input').is(':checked'))
 					{
-						money = parent.find("td:nth-child(9)").find('input').val();
+						money = parent.find("td:nth-child(10)").find('input').val();
 
 						if(money == "")
 						{
@@ -346,11 +348,11 @@ $(function() {
 						} 
 					}else
 					{
-						if(parent.find("td:nth-child(9)").find('input').val() != "")
+						if(parent.find("td:nth-child(10)").find('input').val() != "")
 						{
 							bandera2= true;
 						}
-						money = parent.find("td:nth-child(7)").text();
+						money = parent.find("td:nth-child(8)").text();
 					}
 
 					if(bandera1 == true)
@@ -368,7 +370,7 @@ $(function() {
 
 							if(isParcial == true)
 							{
-								if(money > parent.find("td:nth-child(7)").text())
+								if(money > parent.find("td:nth-child(8)").text())
 								{
 									swal("Importante!", "El valor parcial no puede ser mayor al valor de la incapacidad.", "info");
 								}else
@@ -384,6 +386,13 @@ $(function() {
 							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
 							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
 							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+							//agregamos fecha corte
+
+							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td>' + fechacorte + '</td>')
+							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td>' + nombreincapacidad + '</td>')
 							//agregamos valor
 							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td class="valor-incapacidad" data-parcial="'+isParcial+'">' + money + '</td>')
 							//agregamos boton eliminar
@@ -411,6 +420,12 @@ $(function() {
 							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
 							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
 							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+
+							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td>' + fechacorte + '</td>')
+							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td>' + nombreincapacidad + '</td>')
 							//agregamos valor
 							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td class="valor-incapacidad" data-parcial="'+isParcial+'">' + money + '</td>')
 							//agregamos boton eliminar
@@ -637,12 +652,13 @@ Cargar : function()
 									resp.datos[i].trabajador,
 									resp.datos[i].nombretrabajador,
 									resp.datos[i].cantidad,
-									resp.datos[i].fecha_corte,
+									resp.datos[i].fecha_inicial,
+									resp.datos[i].fecha_final,
 									resp.datos[i].nombreincapacidad,
 									resp.datos[i].saldo,
 									'<div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12"><input type="checkbox" id="' + i + '"><label for="' + i + '"></label></div>',
-									'<div class="form-group"><div class="form-line"><input type="number" style="font-size:1.2em;width:65px" min="0" class="form-control payment-value" placeholder="$" /></div></div>',
-									'<div class="btn-group btn-group-xs" data-tipo-inc="' + resp.datos[i].tipoincapacidad + '" data-id="' + resp.datos[i].id_incapacidad + "-" + resp.datos[i].fecha_corte + "-" + resp.datos[i].tipoincapacidad +'" role="group" aria-label="Small button group"><button data-nivel="1" data-nombre="Administrador" data-id="1" type="button" class="btn btn-success waves-effect add-item"><i class="material-icons">add</i></button></div>'
+									'<div class="form-group"><div class="form-line"><input type="number"  style="font-size:1.2em;width:65px" min="0" class="form-control payment-value" placeholder="$" /></div></div>',
+									'<div class="btn-group btn-group-xs" data-cutdate="' + resp.datos[i].fecha_corte + '" data-nombreincapacidad="'+resp.datos[i].nombreincapacidad+'" data-tipo-inc="' + resp.datos[i].tipoincapacidad + '" data-id="' + resp.datos[i].id_incapacidad + "-" + resp.datos[i].fecha_corte + "-" + resp.datos[i].tipoincapacidad +'" role="group" aria-label="Small button group"><button data-nivel="1" data-nombre="Administrador" data-id="1" type="button" class="btn btn-success waves-effect add-item"><i class="material-icons">add</i></button></div>'
 									]).draw( false );
 							}
 							$('#Modalnuevo').modal('hide');

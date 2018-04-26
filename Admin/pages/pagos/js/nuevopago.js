@@ -308,6 +308,8 @@ $(function() {
 
 				var id = $(this).parent().data('id');
 				var tipoinc = $(this).parent().data('tipo-inc');
+				var fechacorte = $(this).parent().data('cutdate');
+				var nombreincapacidad = $(this).parent().data('nombreincapacidad');
 
 				$('#tabla-detalle-pago tbody').find('.delete-item').parent().each(function() {
 
@@ -328,7 +330,7 @@ $(function() {
 					var money = 0;
 
 					var parent = $(this).parents('tr');
-					if(parent.find("td:nth-child(8)").find('input').is(':checked'))
+					if(parent.find("td:nth-child(9)").find('input').is(':checked'))
 					{
 						money = parent.find("td:nth-child(10)").find('input').val();
 
@@ -377,13 +379,20 @@ $(function() {
 							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
 							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
 							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+							//agregamos fecha corte
+
+							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td>' + fechacorte + '</td>')
+							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td>' + nombreincapacidad + '</td>')
 							//agregamos valor
 							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td class="valor-incapacidad" data-parcial="'+isParcial+'">' + money + '</td>')
 							//agregamos boton eliminar
 							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td><div class="btn-group btn-group-xs" data-tipo-inc="'+ tipoinc +'" data-id="' + id + '"  role="group" aria-label="Small button group"><button data-nivel="1" data-nombre="Administrador" data-id="1" type="button" class="btn btn-success waves-effect delete-item"><i class="material-icons">delete</i></button></div></td>')
 							$('#tabla-detalle-pago tbody tr').each(function(fila) {
 								$this = $(this);
-								total += parseFloat($this.find("td:nth-child(8)").text()); //$this.find("td:nth-child(5)").text();
+								total += parseFloat($this.find("td:nth-child(7)").text()); //$this.find("td:nth-child(5)").text();
 								
 							});
 
@@ -402,13 +411,19 @@ $(function() {
 							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
 							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
 							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+							$('#tabla-detalle-pago tbody').find("tr:last").find("td:last").remove();
+
+							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td>' + fechacorte + '</td>')
+							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td>' + nombreincapacidad + '</td>')
 							//agregamos valor
 							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td class="valor-incapacidad" data-parcial="'+isParcial+'">' + money + '</td>')
 							//agregamos boton eliminar
 							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td><div class="btn-group btn-group-xs" data-tipo-inc="'+ tipoinc +'" data-id="' + id + '"  role="group" aria-label="Small button group"><button data-nivel="1" data-nombre="Administrador" data-id="1" type="button" class="btn btn-success waves-effect delete-item"><i class="material-icons">delete</i></button></div></td>')
 							$('#tabla-detalle-pago tbody tr').each(function(fila) {
 								$this = $(this);
-								total += parseFloat($this.find("td:nth-child(8)").text()); //$this.find("td:nth-child(5)").text();
+								total += parseFloat($this.find("td:nth-child(7)").text()); //$this.find("td:nth-child(5)").text();
 								
 							});
 
@@ -429,7 +444,7 @@ $('#tabla-detalle-pago tbody').off('click').on('click', '.delete-item', function
 	var row = $(this).parents('tr').remove();
 	$('#tabla-detalle-pago tbody tr').each(function(fila) {
 		$this = $(this);
-					total += parseFloat($this.find("td:nth-child(8)").text()); //$this.find("td:nth-child(5)").text();
+					total += parseFloat($this.find("td:nth-child(7)").text()); //$this.find("td:nth-child(5)").text();
 				});
 
 	$('.payment-total-value').text("");
@@ -557,8 +572,8 @@ Cargar : function()
 									resp.datos[i].nombreincapacidad,
 									resp.datos[i].saldo,
 									'<div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12"><input type="checkbox" id="' + i + '"><label for="' + i + '"></label></div>',
-									'<div class="form-group"><div class="form-line"><input type="number" style="font-size:1.2em;width:65px" min="0" class="form-control payment-value" placeholder="$" /></div></div>',
-									'<div class="btn-group btn-group-xs" data-tipo-inc="' + resp.datos[i].tipoincapacidad + '" data-id="' + resp.datos[i].id_incapacidad + "-" + resp.datos[i].fecha_corte + "-" + resp.datos[i].tipoincapacidad +'" role="group" aria-label="Small button group"><button data-nivel="1" data-nombre="Administrador" data-id="1" type="button" class="btn btn-success waves-effect add-item"><i class="material-icons">add</i></button></div>'
+									'<div class="form-group"><div class="form-line"><input type="number"  style="font-size:1.2em;width:65px" min="0" class="form-control payment-value" placeholder="$" /></div></div>',
+									'<div class="btn-group btn-group-xs" data-cutdate="' + resp.datos[i].fecha_corte + '" data-nombreincapacidad="'+resp.datos[i].nombreincapacidad+'" data-tipo-inc="' + resp.datos[i].tipoincapacidad + '" data-id="' + resp.datos[i].id_incapacidad + "-" + resp.datos[i].fecha_corte + "-" + resp.datos[i].tipoincapacidad +'" role="group" aria-label="Small button group"><button data-nivel="1" data-nombre="Administrador" data-id="1" type="button" class="btn btn-success waves-effect add-item"><i class="material-icons">add</i></button></div>'
 									]).draw( false );
 							}
 							$('#Modalnuevo').modal('hide');
