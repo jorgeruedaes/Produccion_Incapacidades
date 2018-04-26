@@ -12,7 +12,7 @@ $(function() {
 		{
 			pagos.AgregarItem();
 		},
-		AddClicks: function()
+		AddClicks: function() 
 		{
 			$('.nuevo-pago').on("click", function(){
 

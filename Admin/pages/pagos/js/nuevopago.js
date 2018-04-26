@@ -10,7 +10,7 @@ $(function() {
 		},		
 		Recargar: function()
 		{
-			pagos.AgregarItem();
+			pagos.AgregarItem(); 
 		},
 		AddClicks: function()
 		{

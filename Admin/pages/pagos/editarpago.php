@@ -23,7 +23,7 @@ if(Boolean_Get_Modulo_Permiso($id_modulos,$_SESSION['perfil'])){
                 <!--<i class="material-icons">home</i>-->
                 Administración
               </a>
-            </li>
+            </li> 
             <?php
             $vector = Array_Get_PadreHijo($id_modulos);
             foreach ($vector as $value)
