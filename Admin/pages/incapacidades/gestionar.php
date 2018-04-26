@@ -65,6 +65,8 @@ if(Boolean_Get_Modulo_Permiso($id_modulos,$_SESSION['perfil'])){
                                     <th>#</th>
                                     <th>Cedula</th>
                                     <th>Nombre</th>
+                                    <th>Ciudad</th>
+                                    <th>Empresa</th>
                                     <th>Eps</th>
                                     <th>Tipo</th>
                                     <th>Fecha Inicial</th>

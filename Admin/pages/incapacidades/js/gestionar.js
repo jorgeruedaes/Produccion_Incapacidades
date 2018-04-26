@@ -279,7 +279,7 @@ enviarDatos: function () {
 
 					}	
 					// falta agregar los dias 				
-					resp.datos.push({"id_incapacidad":'TOTALES: ',"trabajador":'',"nombretrabajador":'',"eps":'',"tipo":'',"fecha_inicial":'',"fecha_final":'',"saldo":saldo,"fecha_corte":'',"cantidad":totaldias,"valor":total,"estado":''})					
+					resp.datos.push({"id_incapacidad":'TOTALES: ',"trabajador":'',"nombretrabajador":'',"ciudad":'',"cliente":'',"eps":'',"tipo":'',"fecha_inicial":'',"fecha_final":'',"saldo":saldo,"fecha_corte":'',"cantidad":totaldias,"valor":total,"estado":''})					
 
 					for (var i = 0; i < resp.datos.length; i++) {
 
@@ -289,6 +289,8 @@ enviarDatos: function () {
 							resp.datos[i].id_incapacidad,
 							resp.datos[i].trabajador,
 							resp.datos[i].nombretrabajador,
+							resp.datos[i].ciudad,
+							resp.datos[i].cliente,
 							resp.datos[i].eps,
 							resp.datos[i].tipo,
 							resp.datos[i].fecha_inicial,
@@ -307,6 +309,8 @@ enviarDatos: function () {
 							resp.datos[i].id_incapacidad,
 							resp.datos[i].trabajador,
 							resp.datos[i].nombretrabajador,
+							resp.datos[i].ciudad,
+							resp.datos[i].cliente,
 							resp.datos[i].eps,
 							resp.datos[i].tipo,
 							resp.datos[i].fecha_inicial,

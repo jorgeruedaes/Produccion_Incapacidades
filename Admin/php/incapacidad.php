@@ -92,6 +92,20 @@ function get_name_tipo($tipo)
 	return $campeonatos['nombre'];	
 }
 
+function get_name_cliente($tipo)
+{
+
+	$campeonatos = mysqli_fetch_array(consultar("SELECT acronimo FROM  `tb_clientes`  WHERE id_clientes =$tipo "));
+	return $campeonatos['acronimo'];	
+}
+
+function get_name_ciudad($tipo)
+{
+
+	$campeonatos = mysqli_fetch_array(consultar("SELECT acronimo FROM  `tb_ciudades`  WHERE id_ciudades =$tipo "));
+	return $campeonatos['acronimo'];	
+}
+
 function get_name_eps($eps)
 {
 
@@ -120,9 +134,9 @@ function Array_Get_IncapcidadesxFiltro($consulta)
 	$datos = array();
 	while ($data = mysqli_fetch_array($clubs)) {
 		$id_incapacidad = $data['id_incapacidad'];
-		$ciudad = $data['ciudad'];
+		$ciudad = get_name_ciudad($data['ciudad']);
 		$trabajador = $data['trabajador'];
-		$cliente = $data['cliente'];
+		$cliente = get_name_cliente($data['cliente']);
 		$tipo = get_name_tipo($data['tipo']);
 		$estado =get_name_estado($data['estado']);
 		$fecha_inicial = $data['fecha_inicial'];

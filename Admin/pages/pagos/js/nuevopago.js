@@ -330,7 +330,7 @@ $(function() {
 					var parent = $(this).parents('tr');
 					if(parent.find("td:nth-child(8)").find('input').is(':checked'))
 					{
-						money = parent.find("td:nth-child(9)").find('input').val();
+						money = parent.find("td:nth-child(10)").find('input').val();
 
 						if(money == "")
 						{
@@ -341,11 +341,11 @@ $(function() {
 						} 
 					}else
 					{
-						if(parent.find("td:nth-child(9)").find('input').val() != "")
+						if(parent.find("td:nth-child(10)").find('input').val() != "")
 						{
 							bandera2= true;
 						}
-						money = parent.find("td:nth-child(7)").text();
+						money = parent.find("td:nth-child(8)").text();
 					}
 
 					if(bandera1 == true)
@@ -363,7 +363,7 @@ $(function() {
 
 							if(isParcial == true)
 							{
-								if(money > parent.find("td:nth-child(7)").text())
+								if(money > parent.find("td:nth-child(8)").text())
 								{
 									swal("Importante!", "El valor parcial no puede ser mayor al valor de la incapacidad.", "info");
 								}else
@@ -383,7 +383,7 @@ $(function() {
 							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td><div class="btn-group btn-group-xs" data-tipo-inc="'+ tipoinc +'" data-id="' + id + '"  role="group" aria-label="Small button group"><button data-nivel="1" data-nombre="Administrador" data-id="1" type="button" class="btn btn-success waves-effect delete-item"><i class="material-icons">delete</i></button></div></td>')
 							$('#tabla-detalle-pago tbody tr').each(function(fila) {
 								$this = $(this);
-								total += parseFloat($this.find("td:nth-child(7)").text()); //$this.find("td:nth-child(5)").text();
+								total += parseFloat($this.find("td:nth-child(8)").text()); //$this.find("td:nth-child(5)").text();
 								
 							});
 
@@ -408,7 +408,7 @@ $(function() {
 							$('#tabla-detalle-pago tbody').find("tr:last").find('td:last').after('<td><div class="btn-group btn-group-xs" data-tipo-inc="'+ tipoinc +'" data-id="' + id + '"  role="group" aria-label="Small button group"><button data-nivel="1" data-nombre="Administrador" data-id="1" type="button" class="btn btn-success waves-effect delete-item"><i class="material-icons">delete</i></button></div></td>')
 							$('#tabla-detalle-pago tbody tr').each(function(fila) {
 								$this = $(this);
-								total += parseFloat($this.find("td:nth-child(7)").text()); //$this.find("td:nth-child(5)").text();
+								total += parseFloat($this.find("td:nth-child(8)").text()); //$this.find("td:nth-child(5)").text();
 								
 							});
 
@@ -429,7 +429,7 @@ $('#tabla-detalle-pago tbody').off('click').on('click', '.delete-item', function
 	var row = $(this).parents('tr').remove();
 	$('#tabla-detalle-pago tbody tr').each(function(fila) {
 		$this = $(this);
-					total += parseFloat($this.find("td:nth-child(7)").text()); //$this.find("td:nth-child(5)").text();
+					total += parseFloat($this.find("td:nth-child(8)").text()); //$this.find("td:nth-child(5)").text();
 				});
 
 	$('.payment-total-value').text("");
@@ -552,7 +552,8 @@ Cargar : function()
 									resp.datos[i].trabajador,
 									resp.datos[i].nombretrabajador,
 									resp.datos[i].cantidad,
-									resp.datos[i].fecha_corte,
+									resp.datos[i].fecha_inicial,
+									resp.datos[i].fecha_final,
 									resp.datos[i].nombreincapacidad,
 									resp.datos[i].saldo,
 									'<div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12"><input type="checkbox" id="' + i + '"><label for="' + i + '"></label></div>',
