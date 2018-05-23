@@ -546,20 +546,20 @@ Cargar : function()
 			//devolvemos todo a su estado natural
 			var estado = $('#payment-title').data('estado');
 
-			if(estado == "completado")
-				{
- 							$.ajax({
-								url: 'pages/pagos/peticiones/peticiones.php',
-								type: 'POST',
-								data: {
-									bandera: "reestablecer-pago",
-									idpago: $("#payment-title").data('id'),
-								},
-								success: function (resp) {
+			// if(estado == "completado")
+			// 	{
+ 			// 					$.ajax({
+			// 					url: 'pages/pagos/peticiones/peticiones.php',
+			// 					type: 'POST',
+			// 					data: {
+			// 						bandera: "reestablecer-pago",
+			// 						idpago: $("#payment-title").data('id'),
+			// 					},
+			// 					success: function (resp) {
 
-								}
-							});
-				}
+			// 					}
+			// 				});
+			// 	}
 		},
 		cargarModal: function()
 		{

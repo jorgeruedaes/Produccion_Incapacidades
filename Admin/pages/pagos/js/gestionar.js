@@ -158,7 +158,7 @@ $(function() {
 										resp.datos[i].estado,
 										resp.datos[i].fechacreacion,
 										resp.datos[i].usuario,
-										'<div class="btn-group btn-group-xs" data-id="'+resp.datos[i].id_pago+'" role="group" aria-label="Small button group"><button data-nivel="1" data-nombre="Administrador" data-id="1" type="button" class="btn btn-success waves-effect edit-item"><i class="material-icons">edit</i></button><button data-nivel="1" data-nombre="Administrador" data-id="1" type="button" class ="btn btn-primary waves-effect show-item"><i class="material-icons">library_books</i></button><button data-nivel="1" data-nombre="Administrador" data-id="1" type="button" class="btn btn-danger waves-effect delete-item"><i class="material-icons">delete</i></button></div>'
+										'<div class="btn-group btn-group-xs" data-id="'+resp.datos[i].id_pago+'" role="group" aria-label="Small button group"><button data-nivel="1" data-nombre="Administrador" data-id="1" type="button" class ="btn btn-primary waves-effect show-item"><i class="material-icons">library_books</i></button><button data-nivel="1" data-nombre="Administrador" data-id="1" type="button" class="btn btn-danger waves-effect delete-item"><i class="material-icons">delete</i></button></div>'
 										]).draw( false );
 
 								}

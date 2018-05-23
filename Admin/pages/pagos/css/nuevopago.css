@@ -9,7 +9,6 @@
 #caja-izq
 {
 	background-color:#FFF;
-	height: 100%;
 	border-right: 1px solid #DADFE1;
 	font-size:0.8em;
 }
@@ -24,7 +23,6 @@
 #caja-der
 {
 	background-color:#FFF;
-	height: 100%;
 	font-size:0.8em;
 }
 .no-padding-left

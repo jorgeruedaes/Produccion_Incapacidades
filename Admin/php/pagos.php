@@ -154,7 +154,25 @@ function Set_nuevo_pago_editado($valorpago,$fechapago,$estadopago,$epspago,$usua
 	$cambios = modificar(sprintf("UPDATE `tb_pagos` SET `valor`='%d',`fecha_pago`='%s',`id_eps`='%d',`estado`='%s' WHERE id_pagos='%d'",
 		escape($valorpago),escape($fechapago),escape($epspago),escape($estadopago),escape($idpago)));
 	//borramos relacion
+
+	//BUSCAR CADA INCAPACIDAD ASOCIADA AL PAGO Y SUMARLE NUEVAMENTE EL VALOR
+	// if($estadopago != "pendiente")
+	// 	{
+	// 		$array = Array_Get_IncapacidadesxPago($idpago);
+	// 			if(count($array) > 0)
+	// 			{
+	// 	 			for ($i=0; $i < count($array); $i++) {
+	 
+	// 			    	//restablezco el valor sumandolo a la incapacidad
+	// 			    	//id, valor, tipo, fecha
+	// 			    	// ejemplo funcionando
+	// 			        Set_Nuevo_Saldo_Incapacidad($array[$i]['idincapacidad'],$array[$i]['valor'],$array[$i]['tipoincapacidad'],$array[$i]['fechacorte']);
+	// 			    }
+	// 			}
+	// 	}
+
 	Delete_Pago_Incapacidad($idpago);
+
 		$json = json_decode($vector);
 	    //a guardar la relacion entre pagos e incapacidades
 		    for ($i=0; $i < count($json) ; $i++) {
@@ -183,6 +201,7 @@ function Set_nuevo_pago_editado($valorpago,$fechapago,$estadopago,$epspago,$usua
 			          }
 			     }
 		    }
+		    
 	return $idpago;
 }
 function Set_Pago_Incapacidad($idpago, $idincapacidad, $valor,$tipoincapacidad,$fechacorte)
